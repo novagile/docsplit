@@ -69,7 +69,7 @@ module Docsplit
       if ext.length > 0 && GM_FORMATS.include?(ext.sub(/^\./, '').downcase.to_sym)
         `gm convert #{escaped_doc} #{escaped_out}/#{escaped_basename}.pdf`
       else
-        options = "-jar #{ROOT}/vendor/jodconverter/jodconverter-core-3.0-beta-3.jar -r #{ROOT}/vendor/conf/document-formats.js"
+        options = "-jar #{ROOT}/vendor/jodconverter/jodconverter-cli-2.2.2.jar"
         run "#{options} #{escaped_doc} #{escaped_out}/#{escaped_basename}.pdf", [], {}
       end
     end
