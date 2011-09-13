@@ -12,7 +12,7 @@ module Docsplit
         if ext.downcase == '.pdf'
           doc
         else
-          tempdir = File.join(Dir.tmpdir, 'docsplit')
+          tempdir = File.dirname(doc) # Put the temp pdf doc in the same directory
           extract_pdf([doc], {:output => tempdir})
           File.join(tempdir, File.basename(doc, ext) + '.pdf')
         end
@@ -24,3 +24,4 @@ module Docsplit
   extend TransparentPDFs
 
 end
+
